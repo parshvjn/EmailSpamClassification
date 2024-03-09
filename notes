@@ -1,0 +1,116 @@
+Data Science/Pandas module
+
+
+
+Data is a collection of facts ( can be like textual or digital data)
+Information is what you get after analyzing the data.
+################################################
+
+ONE DIMENSIONAL-ARRAYS:
+[1,2,3,4,5,2,5,2,5]
+
+[1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9]
+
+Size: 1x9
+
+We call one dimensional lists or arrays: series.
+A column or a row of a table is called as series.
+
+################################################
+
+MULTIDIMENSIONAL-ARRAY
+Shape of a multi-dimensional array means how many rows and columns there are not like, circles or triangles.
+Shape = number of rows * number of columns
+
+Ex.
+[[1,2,3],
+ [4,5,6],
+ [8,9,0]]
+
+Size: 3x3
+
+We call a collection of series or the table as a data frame in pandas module.
+
+
+iloc and loc
+
+iloc works on the copy of a data frame
+
+.iloc[:,:2]
+The first colon tells us that it should take all rows in a data frame.
+The second colon represents that I need only 2 columns from a data frame
+
+
+Marks in percentage is derived from marks obtained and total marks
+
+Iloc: Index based mechanism
+Loc: Label based mechanism
+
+
+All data science-pandas functions (class):
+
+- [ ] pd.Series(list, index_list) —> combines 2 list to make series
+	For example: [“A”, “B”, “C”] and [1,2,3] will become:
+	A 1
+	B 2
+	C 3
+
+- [ ] If f = pd.series(x)
+	f[f.between(2,8)==True] # slicing of series of data frames 	or data[“LENGTH”].between() —> length is a column in a data frame
+- [ ] f.count() # how many in the series
+- [ ] df = pd.DataFrame(Dict) # making a data frame for it
+- [ ] pd.read_csv()
+- [ ] .iloc[index] is index location
+	ex: ex = pd.read_csv(…)
+	ex.iloc[100] or ex.iloc[100:105]
+- [ ] ex.set_index(label, inplace = True) EX: ex.set_index(“DATE”, inplace = True) ex.loc[“"2023-09-14”] # will give rows that have date of this because the current index of data frame is “DATE” 
+- [ ] ex.reset_index(inplace=True) # resets all indexes and makes the index a column again. Inplace = True means it will change the original data frame
+- [ ] df.colums
+- [ ] Df.head()  shows first 5 rows but you can put specific value
+- [ ] df.tail()  shows last 5 rows but you can put specific value
+- [ ] df1=df.iloc[::-1,::-1]  # reversing a data frame!
+- [ ] df1.to_csv(newFileName) # converts your data frame into a new file
+- [ ] pd.concat([df1, df2], ignore_index=True) # add 2 data frames to each other
+- [ ] df1.describe() # Defines the statistical description or distribution of the data-set
+- [ ] df2['a'].isin(df1) # takes the value of a data frame’s column and checks if it is in another data frame (you can also do df2.a instead of [a]
+- [ ] sheets = pd.ExcelFile(filePath).sheet_names   ExcelFile just opens the excel file(xlsx) and .sheet_names gives all sheets(excel files have many sheets)
+- [ ] pd.read_excel()
+- [ ] df.shape
+- [ ] df_copy = df[['text', 'username', 'hashtags', 'created_at']] # you can use this to filter out certain parts of it
+- [ ] df_copy[df_copy.isna() == True] # To check whether the dataframe contains NaN(not a number) values or not
+- [ ] df_copy[~df_copy.isna()] # the ~ means negation. Which means not equals. So in this it checks if it is not NaN.
+- [ ] df_copy. by(by = "username").mean() # take a group of a certain label or column like in this case it was the “username” column of the data frame
+- [ ] df.apply() # apply a function to all rows/colums in a dataframe. If you put axis = 1, then it will do columns, but at default it is 0 or rows
+- [ ] .unique()
+- [ ] .dtype()   
+- [ ] eval() identifies what type of data type is in a string. Eval is a function which excepts the string value and returns the value with the original data type that the string contains.
+- [ ] Re functions !!!!!!!!!~…
+Whenever there are NaN values, you could delete the NaN values. Although the column also has other values so you can’t manipulate the column, so you should drop the NaN values. You can’t fill the NaN values because we don’t know the value to fill it with
+- [ ] .dropna() Removes all nan values from a data frame or column or maybe rows
+- [ ] .sort_values(by = “column name”) # sorts by the certain column
+- [ ] .to_numpy()  takes your filtered data and turns it into a prep for nlp model
+# data normalization is the process of establishing the relationship between data-frames to remove inconsistent data
+- [ ] .rename()
+- [ ] .merge()
+- [ ] .drop_duplicates(keep = …)
+Correlation is a statistical measure that tells how the 2 variables are linearly related.
+- [ ] .astype
+- [ ] .dtype
+- [ ] data1.corr(data2)  
+- [ ] df1=df.iloc[::-1,::-1] ~ to flip table both ways
+
+Linsapce means linear space so it gives a range between 2 fixed number linearly.
+Arrange just gives a integer value
+%matplotlib inline only works in Jupyter notebook as it uses ipython display
+
+# when comparing items in a list with other items in the list itself then use range and indexes but if multiple lists then use comparisons
+
+When wanting to order by a column or find mean do .groupby(by = …).mean()
