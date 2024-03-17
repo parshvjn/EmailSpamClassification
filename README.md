@@ -1,3 +1,3 @@
 # EmailSpamClassification
 
-### Readme file for Email Spam Classification Engine
+### Readme file for Email Spam Classification app
